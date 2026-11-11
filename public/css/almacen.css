@@ -1,0 +1,484 @@
+/* =========================================
+   ALMACÉN INTELIGENTE
+   Diseño limpio · elegante · con espacio
+   ========================================= */
+
+:root {
+    --bg: #ffffff;
+    --text: #111111;
+    --text-secondary: #555555;
+    --text-muted: #999999;
+    --border: #e8e8e8;
+    --border-strong: #111111;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- NAV ---------- */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: #ffffff;
+    border-bottom: 1px solid var(--border);
+    height: 72px;
+    display: flex;
+    align-items: center;
+    padding: 0 64px;
+    gap: 48px;
+}
+
+nav .logo {
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+nav .links {
+    display: flex;
+    gap: 40px;
+}
+
+nav a {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+    transition: color 0.2s;
+}
+
+nav a:hover,
+nav a.activo {
+    color: var(--text);
+}
+
+nav .spacer {
+    flex: 1;
+}
+
+nav .empresa {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-right: 16px;
+}
+
+nav .btn-nav {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    padding: 9px 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+nav .btn-nav:hover {
+    background: var(--text);
+    color: #fff;
+}
+
+/* ---------- CONTENEDOR ---------- */
+.container {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 72px 64px 96px;
+}
+
+.page-header {
+    margin-bottom: 56px;
+}
+
+.page-header h1 {
+    font-size: 36px;
+    font-weight: 500;
+    letter-spacing: -0.6px;
+    margin-bottom: 10px;
+}
+
+.page-header p {
+    font-size: 15px;
+    color: var(--text-muted);
+}
+
+/* ---------- BOTONES ---------- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 26px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    border: 1px solid var(--border-strong);
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background: var(--text);
+    color: #fff;
+}
+
+.btn-primary {
+    background: var(--text);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #333;
+}
+
+.btn-ghost {
+    border-color: var(--border);
+    color: var(--text-secondary);
+}
+
+.btn-ghost:hover {
+    border-color: var(--text);
+    color: var(--text);
+    background: transparent;
+}
+
+/* ---------- SEARCH ---------- */
+.search-bar {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+    margin-bottom: 64px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    font-size: 15px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-bar input:focus {
+    border-bottom-color: var(--text);
+}
+
+/* ---------- LAYOUT ---------- */
+.layout {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 80px;
+    align-items: start;
+}
+
+@media (max-width: 1100px) {
+    .layout {
+        grid-template-columns: 1fr;
+        gap: 64px;
+    }
+}
+
+/* ---------- SECCIONES ---------- */
+.section-title {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 28px;
+}
+
+/* ---------- CROQUIS ---------- */
+.grid {
+    display: grid;
+    gap: 5px;
+    width: max-content;
+}
+
+.celda {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    user-select: none;
+    transition: all 0.15s;
+}
+
+.celda:hover {
+    border-color: var(--text);
+}
+
+.celda.resaltada,
+.celda.seleccionada {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+}
+
+/* ---------- TABLA ---------- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 14px 16px 14px 0;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+}
+
+td {
+    padding: 22px 16px 22px 0;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border);
+    color: var(--text);
+    vertical-align: middle;
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+td .btn {
+    padding: 8px 16px;
+    font-size: 11px;
+}
+
+.badge {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ---------- MODAL (panel derecho) ---------- */
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 440px;
+    background: #ffffff;
+    border-left: 1px solid var(--border);
+    display: none;
+    z-index: 200;
+    overflow-y: auto;
+    box-shadow: -8px 0 30px rgba(0, 0, 0, 0.06);
+}
+
+.modal.activo {
+    display: block;
+}
+
+.modal-content {
+    padding: 48px 40px;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+}
+
+.modal-content h3 {
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.modal-content .instruccion {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-bottom: 36px;
+    line-height: 1.5;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 12px 0;
+    font-size: 15px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+}
+
+.form-group input:focus {
+    border-bottom-color: var(--text);
+}
+
+.form-group input[readonly] {
+    font-weight: 500;
+    color: var(--text);
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 14px;
+    margin-top: 40px;
+}
+
+/* ---------- EDITOR ---------- */
+.toolbar {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 48px;
+    flex-wrap: wrap;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.toolbar label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-right: 10px;
+}
+
+.toolbar input[type="number"] {
+    width: 64px;
+    border: none;
+    border-bottom: 1px solid var(--border);
+    padding: 8px 0;
+    font-size: 14px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+}
+
+.herramientas {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.herramientas button {
+    padding: 9px 16px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.6px;
+    text-transform: uppercase;
+    border: 1px solid var(--border);
+    background: #fff;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.15s;
+}
+
+.herramientas button.activa {
+    background: var(--text);
+    color: #fff;
+    border-color: var(--text);
+}
+
+#gridEditor {
+    display: grid;
+    gap: 4px;
+    width: max-content;
+    margin-bottom: 28px;
+}
+
+.celda-editor {
+    width: 38px;
+    height: 38px;
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 600;
+    cursor: crosshair;
+    user-select: none;
+    background: #fff;
+    color: var(--text);
+}
+
+.tip {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* ---------- HISTORIAL ---------- */
+.vacio {
+    text-align: center;
+    padding: 100px 20px;
+    color: var(--text-muted);
+    font-size: 15px;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    nav {
+        padding: 0 24px;
+        gap: 20px;
+        height: 64px;
+    }
+    
+    .container {
+        padding: 48px 24px 72px;
+    }
+    
+    .page-header h1 {
+        font-size: 28px;
+    }
+    
+    .layout {
+        gap: 48px;
+    }
+}

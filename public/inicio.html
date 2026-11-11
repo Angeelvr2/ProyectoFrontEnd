@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario — Almacén</title>
+    <link rel="stylesheet" href="css/almacen.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Almacén</div>
+        <div class="links">
+            <a href="/inicio.html" class="activo">Inventario</a>
+            <a href="/editor.html">Editor</a>
+            <a href="/historial.html">Historial</a>
+        </div>
+        <div class="spacer"></div>
+        <div class="empresa" id="empresaNombre"></div>
+        <button class="btn-nav" id="logoutBtn">Salir</button>
+    </nav>
+
+    <div class="container">
+        
+        <div class="search-bar">
+            <input type="text" id="busqueda" placeholder="Buscar por parte, descripción, serial, lote o celda">
+            <button class="btn btn-primary" id="btnAgregar">Agregar material</button>
+        </div>
+
+        <div class="layout">
+            <div>
+                <div class="section-title">Distribución</div>
+                <div id="hintAlta" class="tip" style="display:none; margin-bottom:16px;">Selecciona un estante en el plano</div>
+                <div id="gridCroquis" class="grid"></div>
+            </div>
+
+            <div>
+                <div class="section-title">Existencias</div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Parte</th>
+                            <th>Descripción</th>
+                            <th>Cant.</th>
+                            <th>Serial</th>
+                            <th>Lote</th>
+                            <th>Celda</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaInventario"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<!-- MODAL ALTA -->
+<div id="modalAlta" class="modal">
+    <div class="modal-content">
+        <h3>Agregar material</h3>
+        <p class="instruccion">
+            Haz clic en un <strong>estante</strong> del plano para asignar la ubicación.
+        </p>
+        
+        <form id="formAlta">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>N° Parte</label>
+                    <input type="text" id="altaNumeroParte" required>
+                </div>
+                <div class="form-group">
+                    <label>Celda</label>
+                    <input type="text" id="altaCelda" readonly required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Descripción</label>
+                <input type="text" id="altaDescripcion" required>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Lote</label>
+                    <input type="text" id="altaLote" required>
+                </div>
+                <div class="form-group">
+                    <label>Serial</label>
+                    <input type="text" id="altaSerial" placeholder="Opcional">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Cantidad</label>
+                    <input type="number" id="altaCantidad" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Fecha</label>
+                    <input type="date" id="altaFecha" required>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" id="cancelarAlta">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Guardar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+   <!-- MODAL RETIRO -->
+<div id="modalRetiro" class="modal">
+    <div class="modal-content">
+        <h3>Retirar material</h3>
+        <p id="retiroInfo" class="instruccion"></p>
+        
+        <form id="formRetiro">
+            <div class="form-group">
+                <label>Cantidad a retirar</label>
+                <input type="number" id="retiroCantidad" min="1" required>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" id="cancelarRetiro">Cancelar</button>
+                <button type="submit" class="btn btn-primary">Confirmar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+    <script src="js/inventario.js"></script>
+</body>
+</html>

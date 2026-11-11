@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial — Almacén</title>
+    <link rel="stylesheet" href="css/almacen.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Almacén</div>
+        <div class="links">
+            <a href="/inicio.html">Inventario</a>
+            <a href="/editor.html">Editor</a>
+            <a href="/historial.html" class="activo">Historial</a>
+        </div>
+        <div class="spacer"></div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Historial</h1>
+            <p>Registro de movimientos de material</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Fecha y hora</th>
+                    <th>Tipo</th>
+                    <th>Cantidad</th>
+                    <th>Usuario</th>
+                </tr>
+            </thead>
+            <tbody id="tablaMovimientos"></tbody>
+        </table>
+    </div>
+
+    <script src="js/historial.js"></script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editor — Almacén</title>
+    <link rel="stylesheet" href="css/almacen.css">
+</head>
+<body>
+    <nav>
+        <div class="logo">Almacén</div>
+        <div class="links">
+            <a href="/inicio.html">Inventario</a>
+            <a href="/editor.html" class="activo">Editor</a>
+            <a href="/historial.html">Historial</a>
+        </div>
+        <div class="spacer"></div>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h1>Editor de distribución</h1>
+            <p>Define la distribución física del almacén</p>
+        </div>
+
+        <div class="toolbar">
+            <div>
+                <label>Columnas</label>
+                <input type="number" id="columnas" value="15" min="5" max="40">
+            </div>
+            <div>
+                <label>Filas</label>
+                <input type="number" id="filas" value="10" min="5" max="30">
+            </div>
+
+            <div class="herramientas" id="herramientas"></div>
+
+            <button class="btn btn-primary" id="btnGuardar" style="margin-left:auto;">
+                Guardar
+            </button>
+        </div>
+
+        <div id="gridEditor"></div>
+        <p class="tip">Selecciona una herramienta y arrastra para dibujar la distribución.</p>
+    </div>
+
+    <script src="js/editor.js"></script>
+</body>
+</html>
